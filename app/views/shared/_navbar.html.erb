@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container">
+          <%= image_tag("/a logo.png", :alt => "Amit", :style => "max-width: 40px") %> &nbsp;
+        <a class="navbar-brand" href="<%= root_path %>">My Blog</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#first">First Item</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#second">Second Item</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" id="navbarDropdown" aria-expanded="false" data-bs-toggle="dropdown" href="#">Dropdown</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">First Item</a>
+                            <a class="dropdown-item" href="#">Second Item</a>
+                            <a class="dropdown-item" href="#">Third Item</a>
+                        </div>
+                    </li>
+                </ul>
+                <span class="navbar-text actions"> 
+                <% if user_signed_in? %>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-light action-button" %>
+                <% else %>
+                    <a class="login" href="<%= new_user_session_path %>">Log In</a>
+                    <a class="btn btn-light action-button" role="button" href="<%= new_user_registration_path %>">Sign Up</a>
+                <% end %>
+                </span>
+            </div>
+        </div>
+</nav>
