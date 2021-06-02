@@ -34,7 +34,7 @@
 }
 
 .navigation-clean-button .navbar-toggler {
-  color: #888;
+  color: rgb(136, 136, 136);
 }
 
 .navigation-clean-button .navbar-nav a.active, .navigation-clean-button .navbar-nav > .show > a {

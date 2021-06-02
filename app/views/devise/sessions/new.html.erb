@@ -1,35 +1,34 @@
+<div class="row sidenav">
+    <div class="col-md-6 login-main-text">
+        <h2>Application Login Page</h2>
+        <p>Login or register from here to access.</p>
+    </div>
 
+<section class="col-md-6 login-dark">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      
+      <div class="mb-3">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
 
-      <section class="login-dark">
+      <div class="mb-3">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      </div>
 
-        <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+      <% if devise_mapping.rememberable? %>
+        <div class="mb-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
 
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            
-            <div class="mb-3">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-            </div>
-
-            <div class="mb-3">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-            </div>
-
-            <% if devise_mapping.rememberable? %>
-              <div class="mb-3">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
-              </div>
-            <% end %>
-
-            <div class="mb-3">
-              <%= f.submit "Log in", class: "btn btn-outline-primary d-block w-100" %>
-            </div>
-          <% end %>
-
-          
-    
-           <a class="forgot" href=""><%= render "devise/shared/links" %></a> %>
+      <div class="mb-3">
+        <%= f.submit "Log in", class: "btn btn-outline-primary d-block w-100" %> <br/>
+        <a class="forgot" href=""><%= render "devise/shared/links" %></a> 
+      </div>
+    <% end %>    
 
 </section>
+</div>
